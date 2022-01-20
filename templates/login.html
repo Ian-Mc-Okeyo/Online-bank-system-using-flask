@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>
+        Login Page
+    </title>
+{% endblock %}
+{% block body %}
+    <br>
+    <br>
+    <div class = 'login-container'>
+        <form method='POST' class = 'login-container'>
+            {{ form.hidden_tag() }}
+            <div style="order: 1;"><h2 style="color: #40ff00; font-size: 3em;" >G7 BANK</h2></div>
+            <div style="order: 2;"><img src="{{url_for('static', filename='g7.png')}}" class='logo'></div>
+            <div style="order: 3">{{ form.name.label(class='labels') }}</div>
+            <div style="order: 5">{{ form.name(class='forms', placeholder='User Name') }}</div>
+            <div style="order: 6">{{ form.accountNo.label(class='labels') }}</div>
+            <div style="order: 7">{{ form.accountNo(class='forms', placeholder='Account Number') }}</div>
+            <div style="order: 8">{{ form.password.label(class='labels') }}</div>
+            <div style="order: 9">{{ form.password(class='forms', placeholder='Password') }}</div>
+            <div style="order: 10"> {{ form.submit(class='submit') }}</div>
+        </form>
+    </div>
+{% endblock %}

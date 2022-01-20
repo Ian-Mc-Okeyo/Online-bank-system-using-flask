@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>
+        myPersonal Account
+    </title>
+{% endblock %}
+{% block body %}
+    <div class='personal-page'>
+        <div style="order: 1; flex-basis:30%;" class='personal-details'>
+            <div style='order: 1'><h3 style="color: blue; font-size: 2em;">Personal Details</h3></div>
+            <div style="order: 2"><h3><b class='labels'>Account Name:</b> <i class='details'>{{ current_user.name }}</i></h3></div>
+            <div style="order: 3"><h3><b class='labels'>Account Number:</b> <i class='details'>{{ current_user.accountNo }}</i></h3></div>
+            <div style="order: 4"><h3><b class='labels'>Balance:</b> <i class=details>{{ current_user.change_money }}</i></h3></div>
+            <div style="order: 5"><h3><b class='labels'>Date:</b> <i class='details'>{{ time }}</i></h3></div>
+        </div>
+        <div style="order:2; flex-basis: 60%;" class='actions'>
+            <div>
+                <form method='POST'>
+                    {{ withdrawForm.hidden_tag() }}
+                    <div style='order: 1'><h3 style="color: blue; font-size: 1.5em;">Withdraw</h3></div>
+                    <div style='order: 2'>{{ withdrawForm.amount(class='actions-forms', placeholder='Withdrawal Amount') }} {{ withdrawForm.submit1(class='actions-submit') }}</div>
+                </form>
+            </div>
+            <div>
+                <form method='POST'>
+                    {{ depositForm.hidden_tag() }}
+                    <div style='order: 4'><h3 style="color: blue; font-size: 1.5em;">Deposit</h3></div>
+                    <div style='order: 5'>{{ depositForm.amount(class='actions-forms', placeholder='Deposit Amount') }} {{ depositForm.submit2(class='actions-submit') }}</div>
+                </form>
+            </div>
+            <div>
+                <form method='POST'>
+                {{ transferForm.hidden_tag() }}
+                <div style='order: 7'><h3 style="color: blue; font-size: 1.5em;">Transfer</h3></div>
+                <div style='order: 8'>{{ transferForm.amount(class='actions-forms', placeholder='Transfer Amount') }} {{ transferForm.submit3(class='actions-submit') }}</div>
+                <div style='order: 9'>{{ transferForm.receiver(class='actions-forms', placeholder='Receiver ID') }}</div>
+            </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

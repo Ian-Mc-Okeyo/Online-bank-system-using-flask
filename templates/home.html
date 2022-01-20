@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>
+        Home Page
+    </title>
+{% endblock %}
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class ='home-page_container' >
+        <div style="order: 1;"><h1>THE G7 BANK</h1></div>
+        <div style="order: 2;"><img src="{{url_for('static', filename='g7.png')}}" class='logo'></div>
+        <div style="order: 3;"><h3 style="color:rgb(9, 91, 199);">Be Your Own Financial $ Star $ </h3></div>
+    </div>
+{% endblock %}

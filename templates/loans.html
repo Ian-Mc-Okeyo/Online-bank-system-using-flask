@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Loans Page</title>
+{% endblock %}
+{% block body %}
+    <div class='personal-page'>
+        <div style="order: 1; flex-basis:30%;" class='personal-details'>
+            <div style='order: 1'><h3 style="color: blue; font-size: 2em;">Loans Details</h3></div>
+            <div style="order: 2"><h3><b class='labels'>Account Name:</b> <i class='details'>{{ current_user.name }}</i></h3></div>
+            <div style="order: 3"><h3><b class='labels'>Account Number</b>: <i class='details'>{{ current_user.accountNo }}</i></h3></div>
+            <div style="order: 4"><h3><b class='labels'>Loan Balance:</b> <i class=details>{{ current_user.loanAmount }}</i></h3></div>
+            <div style="order: 5"><h3><b class='labels'>Loan Limit:</b> <i class=details>{{ limit }}</i></h3></div>
+            <div style="order: 6"><h3><b class='labels'>Date:</b> <i class='details'>{{ time }}</i></h3></div>
+        </div>
+        <div style="order:2; flex-basis: 60%;" class='actions'>
+            <div>
+                <form method='POST'>
+                    {{ borrowForm.hidden_tag() }}
+                    <div style='order: 1; align-items: centre;'><h3 style="color: blue; font-size: 2em;"><sup>Borrow </sup> <sub><img src="{{url_for('static', filename='borrow.png')}}" style="width:60px; border-radius: 43px;"></sub></h3> </div>
+                    <div style='order: 2'>{{ borrowForm.amount(class='actions-forms', placeholder='Borrow Amount') }} {{ borrowForm.submit4(class='actions-submit') }}</div>
+                </form>
+            </div>
+            <div>
+                <form method='POST'>
+                    {{ repayForm.hidden_tag() }}
+                    <div style='order: 4'><h3 style="color: blue; font-size: 2em;"><sup>Repay </sup><img src="{{url_for('static', filename='repay.jpg')}}" style="width:100px; border-radius: 60px;"></h3></div>
+                    <div style='order: 5'>{{ repayForm.amount(class='actions-forms', placeholder='Repay Amount') }} {{ repayForm.submit5(class='actions-submit') }}</div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
