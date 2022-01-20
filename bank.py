@@ -1,3 +1,4 @@
+#This python file creates a desktop app to used by the bank to ceate and manage user accounts. It has higher provileges compared to the website
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
